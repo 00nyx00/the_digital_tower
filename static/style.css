@@ -1,8 +1,92 @@
 body {
-    background-color: brown;
+    margin: 0;
+    padding: 0;
+    min-height: calc(100vh - 10px);
+	overflow-x: hidden;
+    background-color: rgb(76, 46, 46);
+    cursor: url(img/pinkcursorresize.png), auto;
+    
 }
+
 
 /*test for interactable objects*/
 .scoreable {
     cursor: pointer;
+}
+
+/*marquee*/
+.marquee {
+    overflow: hidden;
+    border-top: 1px dotted #d53f8c;
+    border-bottom: 1px dotted #d53f8c;
+    background-color: black;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    z-index: 3
+  }
+  
+  .marquee h1{
+    font-family: 'Courier New', Courier, monospace;
+    color: #d53f8c;
+    font-size: 1em;
+    white-space: nowrap;
+  }
+
+
+/*home*/
+.homebg{
+    position: fixed;
+    z-index: 1;
+    background-image: url(img/1020brick.jpg);
+    background-repeat: repeat;
+    filter: opacity(0.7);
+    width: 100%;
+    height: 100%;
+}
+
+.homescreen{
+    position:relative;
+    z-index: 2;
+    width: 100%;
+    height: 900px;
+}
+.windowleft img{
+    position: absolute;
+    left: 1vw;
+    width: 32vw;
+}
+
+.windowright img{
+    position: absolute;
+    right: 15vw;
+    width: 32vw;
+}
+
+.portrait img{
+    position: absolute;
+    top: 2vw;
+    left: 35vw;
+    width: 20vw;
+}
+
+.couch img{
+    position: absolute;
+    top: 25vh;
+    left: 25vw;
+    width: 40vw;
+}
+
+.stairs img{
+    position: absolute;
+    top: 0;
+    right: -15vw;
+    height: 95vh;
+}
+
+.hole img{
+    position: absolute;
+    bottom: 0vh;
+    left: 3vw;
+    width: 18vw;
 }

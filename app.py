@@ -11,6 +11,8 @@ app.config["SESSION_COOKIE_SECURE"] = False
 app.secret_key = 'secret'
 Session(app)
 
+#   SESSION HANDLING
+
 @app.before_request
 def make_session_permanent():
     # Initialize session on first request
@@ -20,6 +22,9 @@ def make_session_permanent():
     # This forces the session to be created/updated on every request
     # ensuring the cookie is sent immediately when the page loads.
     session.modified = True
+
+
+#   ROUTING
 
 @app.route("/")
 def index():
@@ -37,7 +42,11 @@ def princess():
 def bedroom():
     return render_template("bedroom.html")
 
-# handling item interactions
+
+
+
+#  INTERACTIONS AND SCORING
+
 ITEM_POINTS = {
     'test_good': 3,
     'test_bad': -1,
@@ -88,4 +97,4 @@ def get_score(user_id):
     return result if result else 0
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=8000, debug=True)

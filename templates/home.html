@@ -5,6 +5,7 @@
 {% block body %}
 
 <main>
+<!--
     <a href="/princess">Go to the Princess</a>
     <a href="/bedroom">Go to the Bedroom</a>
     <br> <br>
@@ -15,7 +16,35 @@
     <div class="scoreable" data-value="test_bad" >
         <h3>Danger Zone</h3>
         <p>Clicking anywhere in this box gives -1 point</p>
+    </div> -->
+    <div class="homebg"></div>
+    <div class="homescreen">
+        <div class="windowleft">
+            <img src="{{ url_for ('static', filename='img/Window2.png') }}" alt="Left Window">
+        </div>
+        <div class="portrait">
+            <img src="{{ url_for ('static', filename='img/Portrait1.png') }}" alt="Princess Portrait">
+        </div>
+        <div class="windowright">
+            <img src="{{ url_for ('static', filename='img/Window1.png') }}" alt="Right Window">
+        </div>
+        <div class="couch">
+            <img src="{{ url_for ('static', filename='img/Couch1.png') }}" alt="Couch">
+        </div>
+        <div class="stairs">
+            <img src="{{ url_for ('static', filename='img/StairsUp1.png') }}" alt="Stairs">
+        </div>
+        <div class="hole">
+            <img src="{{ url_for ('static', filename='img/Hole1.png') }}" alt="Hole">
+        </div>
+
+
+
+        <div class="marquee">
+            <h1>you have entered the digital tower ⋆˚☆˖°⋆｡° ✮˖ ࣪ ⊹⋆.˚ the princess awaits you *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ </h1>
+        </div>
     </div>
+    
 
 </main>
 
