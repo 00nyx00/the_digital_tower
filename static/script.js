@@ -1,4 +1,27 @@
+/* DELETE THE COMMENT MARKS BEFORE UPLOAD!!!!
+// on load check if yarn was collected
+if (localStorage.getItem('yarn_collected') === 'true') {
+    // If we found it before, hide it immediately
+    const yarnElement = document.querySelector('.scoreable[data-value="yarn"]');
+    if (yarnElement) yarnElement.style.display = 'none';
+}
+    
+
+// on load check if bed was clicked
+if (localStorage.getItem('bed_clicked') === 'true') {
+  const bedElement = document.querySelector('.scoreable[data-value="bed"]');
+  if (bedElement) {
+      // Apply the "disabled" look immediately
+      bedElement.style.pointerEvents = 'none';
+      bedElement.style.cursor = 'default';
+      bedElement.style.opacity = '0.7';
+  }
+}
+*/
+
 // send values of clicked items
+
+let bedTimerInterval; // Store timer ID globally
 
 document.querySelectorAll('.scoreable').forEach(element => {
     element.addEventListener('click', function() {
@@ -13,9 +36,72 @@ document.querySelectorAll('.scoreable').forEach(element => {
             keepalive: true
         });
         
-        // No .then() block means the UI remains exactly as it is.
-    });
+        if (val === 'yarn') {
+          // Hide the element
+          this.style.display = 'none'; 
+
+          // remember it was found
+            localStorage.setItem('yarn_collected', 'true');
+          
+          // Show the custom alert overlay
+            const overlay = document.getElementById('yarn-alert');
+            if (overlay) {
+                overlay.style.display = 'flex'; // 'flex' enables the centering from CSS
+            }
+        }
+
+        
+        // --- BED LOGIC ---
+        if (val === 'bed') {
+            // A. DISABLE LOGIC: Stop future clicks
+            this.style.pointerEvents = 'none'; // Makes it unclickable
+            this.style.cursor = 'default';     // Changes cursor back to arrow
+            this.style.opacity = '0.7';        // Dims the bed to show it is "done"
+
+            // remember it was clicked
+            localStorage.setItem('bed_clicked', 'true');
+
+            // POPUP LOGIC
+            const overlay = document.getElementById('bed-overlay');
+            const timerText = document.getElementById('timer-count');
+            
+            // Reset timer
+            clearInterval(bedTimerInterval);
+            let timeLeft = 10;
+            timerText.innerText = timeLeft;
+            
+            // Show overlay
+            overlay.style.display = 'flex';
+            
+            // Start Countdown 
+            bedTimerInterval = setInterval(function(){
+              timeLeft--; 
+              timerText.innerText = timeLeft;
+
+              if(timeLeft <= 0){
+                  clearInterval(bedTimerInterval);
+                  overlay.style.display = 'none';
+              } 
+          }, 1000);
+      }
+  });
 });
+
+// close the yarn alert
+const closeAlertBtn = document.getElementById('close-alert');
+if (closeAlertBtn) {
+    closeAlertBtn.addEventListener('click', function() {
+        document.getElementById('yarn-alert').style.display = 'none';
+    });
+}
+// close bed alert
+const closeBedBtn = document.getElementById('close-bed-btn');
+if (closeBedBtn) {
+    closeBedBtn.addEventListener('click', function() {
+        document.getElementById('bed-overlay').style.display = 'none';
+        clearInterval(bedTimerInterval);
+    });
+}
 
 
 

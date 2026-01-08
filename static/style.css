@@ -5,6 +5,7 @@ body {
 	overflow-x: hidden;
     background-color: rgb(76, 46, 46);
     cursor: url(img/pinkcursorresize.png), auto;
+    font-family: 'Courier New', Courier, monospace;
     
 }
 
@@ -23,7 +24,7 @@ body {
     display: flex;
     position: fixed;
     bottom: 0;
-    z-index: 3
+    z-index: 3;
   }
   
   .marquee h1{
@@ -61,6 +62,7 @@ body {
     position: absolute;
     right: 15vw;
     width: 32vw;
+    z-index: 4;
 }
 
 .portrait img{
@@ -72,7 +74,7 @@ body {
 
 .couch img{
     position: absolute;
-    top: 25vh;
+    top: 13.5vw;
     left: 25vw;
     width: 40vw;
 }
@@ -81,12 +83,187 @@ body {
     position: absolute;
     top: 0;
     right: -15vw;
-    height: 95vh;
+    width: 51vw;
+    z-index: 3;
 }
 
 .hole img{
     position: absolute;
-    bottom: 0vh;
+    top: 35vw;
     left: 3vw;
     width: 18vw;
+}
+
+
+/*about*/
+.abouttext{
+    position:absolute;
+    top: 16.5vw;
+    left:20vw;
+    width: 30vw;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 1vw;
+}
+
+.aboutportrait img{
+    position: absolute;
+    top: 2.7vw;
+    right: 10vw;
+    width: 40vw;
+}
+
+.backhome a{
+    position: absolute;
+    top: 1vw;
+    right: 2vw;
+    width: 1vw;
+    font-size: 1.6vw;
+    color: white;
+    text-decoration: none;
+}
+
+/*bedroom*/
+.bedroombg{
+    position: fixed;
+    z-index: 1;
+    background-image: url(img/bedroombrick1.jpg);
+    background-repeat: repeat;
+    filter: opacity(0.6);
+    width: 100%;
+    height: 100%;
+}
+
+.balcony img{
+    position: absolute;
+    top: 4.4vw;
+    right: 10vw;
+    width: 20vw;
+}
+
+.bed img{
+    position: absolute;
+    top: 10vw;
+    left: 4vw;
+    width: 40vw;
+}
+
+.basket img{
+    position: absolute;
+    top: 35vw;
+    right: 6vw;
+    width: 15vw;
+}
+
+.yarn img{
+    position: absolute;
+    top: 38.8vw;
+    right: 10.5vw;
+    width: 16vw;
+}
+
+/*yarn alert*/
+#yarn-alert {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    z-index: 1000; /* Ensure it sits on top of everything */
+
+}
+
+.alert-box img{
+    position:relative;
+    top: 20vw;
+    left: 45vw;
+    width: 15vw;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    animation: popIn 0.2s ease; /* Optional nice animation */
+}
+
+#close-alert {
+    position: relative;
+    top: 18.2vw;
+    left: 38.2vw;
+    width: 5.3vw;
+    height: 1.7vw;
+    background-color: #c0c0c0;
+    animation: popIn 0.2s ease; /* Optional nice animation */
+
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/*bed alert*/
+#bed-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    z-index: 1000; /* Ensure it sits on top of everything */
+
+}
+
+.timer-box img{
+    position: relative;
+    top: 20vw;
+    left: 45vw;
+    width: 15vw;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.close-x {
+    position: absolute;
+    top: 20.1vw;
+    left: 58.7vw;
+    font-size: 1.4vw;
+    font-weight: bold;
+    color: #939393;
+    cursor: pointer;
+    z-index:1001;
+}
+
+.close-x:hover {
+    color: #000; /* Darken when hovering */
+}
+
+#timer-count{
+    position: relative;
+    top: 16vw;
+    left: 56vw;
+    font-size: 3vw;
+    color: #d53f8c;
+}
+
+/*balcony*/
+.balconybg{
+    position: fixed;
+    z-index: 1;
+    background-image: url(img/balconybg.jpg);
+    filter: opacity(0.9);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.railing img{
+    position: absolute;
+    z-index: 0;
+    filter: opacity(0.9);
+    width: 100vw;
+}
+
+.telescope img{
+    position: absolute;
+    top: 7vw;
+    left: 17vw;
+    width: 22vw;
 }

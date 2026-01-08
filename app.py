@@ -42,6 +42,13 @@ def princess():
 def bedroom():
     return render_template("bedroom.html")
 
+@app.route("/dungeon", methods=["GET", "POST"])
+def dungeon():
+    return render_template("dungeon.html")
+
+@app.route("/balcony", methods=["GET", "POST"])
+def balcony():
+    return render_template("balcony.html")
 
 
 
@@ -50,6 +57,12 @@ def bedroom():
 ITEM_POINTS = {
     'test_good': 3,
     'test_bad': -1,
+    'stairs': 2,
+    'hole': -2,
+    'balcony': 5,
+    'yarn': 5,
+    'bed': 3,
+    'no_rest': -3,
 }
 
 @app.route('/save', methods=['POST'])

@@ -5,7 +5,35 @@
 {% block body %}
 
 <main>
-    <a href="/home">Back to The Tower</a>
+    <div class="bedroombg"></div>
+    <div class="homescreen">
+        <div class="balcony scoreable" data-value="balcony">
+            <a href="/balcony"><img src="{{ url_for ('static', filename='img/Balcony1.png') }}" alt="Balcony"></a>
+        </div>
+        <div class="bed scoreable" data-value="bed">
+            <img src="{{ url_for ('static', filename='img/Bed1.png') }}" alt="Bed">
+        </div>
+        <div class="basket">
+            <img src="{{ url_for ('static', filename='img/Basket1.png') }}" alt="Basket">
+        </div>
+        <div class="yarn scoreable" data-value="yarn">
+            <img src="{{ url_for ('static', filename='img/Yarn1.png') }}" alt="Yarn">
+        </div>
+
+
+        <div id="yarn-alert" style="display: none;">
+            <div class="alert-box">
+                <img src="{{ url_for('static', filename='img/yarnerror.png') }}" alt="Yarn Found!">
+                <button id="close-alert">collect</button>
+            </div>
+        </div>
+        <div id="bed-overlay" style="display: none;">
+            <div class="timer-box">
+                <span id="close-bed-btn" class="close-x scoreable" data-value="no_rest">X</span>     
+                <img src="{{ url_for('static', filename='img/bederror.png') }}" alt="Sleeping..." >
+                <div id="timer-count">10</div>
+        </div>
+    </div>
 </main>
 
 {% endblock %}

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}balcony{% endblock %}
+
+{% block body %}
+<main>
+    <div class="balconybg"></div>
+
+    <div class="homescreen">
+        <div class="railing">
+            <img src="{{ url_for ('static', filename='img/Railing1.png') }}" alt="Balcony Railing">
+        </div>
+        <div class="telescope scoreable">
+            <a href="https://youtu.be/dQw4w9WgXcQ?si=yJREWJrvYL2eZY12"><img src="{{ url_for ('static', filename='img/Telescope1.png') }}" alt="Telescope"></a>
+        </div>
+        
+    </div>
+
+</main>
+
+
+{% endblock %}

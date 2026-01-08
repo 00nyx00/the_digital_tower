@@ -23,7 +23,7 @@
             <img src="{{ url_for ('static', filename='img/Window2.png') }}" alt="Left Window">
         </div>
         <div class="portrait">
-            <img src="{{ url_for ('static', filename='img/Portrait1.png') }}" alt="Princess Portrait">
+            <a href="/princess"><img src="{{ url_for ('static', filename='img/Portrait1.png') }}" alt="Princess Portrait"></a>
         </div>
         <div class="windowright">
             <img src="{{ url_for ('static', filename='img/Window1.png') }}" alt="Right Window">
@@ -31,18 +31,16 @@
         <div class="couch">
             <img src="{{ url_for ('static', filename='img/Couch1.png') }}" alt="Couch">
         </div>
-        <div class="stairs">
-            <img src="{{ url_for ('static', filename='img/StairsUp1.png') }}" alt="Stairs">
+        <div class="stairs scoreable" data-value="stairs">
+            <a href="/bedroom"><img src="{{ url_for ('static', filename='img/StairsUp1.png') }}" alt="Stairs"> </a>
         </div>
-        <div class="hole">
-            <img src="{{ url_for ('static', filename='img/Hole1.png') }}" alt="Hole">
+        <div class="hole scoreable" data-value="hole">
+            <a href="/dungeon"><img src="{{ url_for ('static', filename='img/Hole1.png') }}" alt="Hole"></a>
         </div>
 
 
 
-        <div class="marquee">
-            <h1>you have entered the digital tower ⋆˚☆˖°⋆｡° ✮˖ ࣪ ⊹⋆.˚ the princess awaits you *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ </h1>
-        </div>
+        
     </div>
     
 
