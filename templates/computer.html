@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}computer{% endblock %}
+
+{% block body %}
+
+<main> 
+    <div class="computerbg"></div>
+    <div class="homescreen">
+        <div class="homeicon scoreable" data-value="home">
+            <a href="/dungeon"><img src="{{ url_for ('static', filename='img/homeicon.png') }}" alt="Home Icon"></a>
+        </div>
+        <div class="quiticon scoreable" data-value="quit">
+            <a href="/bedroom"><img src="{{ url_for ('static', filename='img/powericon.png') }}" alt="Quit Icon"></a>
+        </div>
+        <div class="window-container">
+            <div class="window-header">*ੈ✩‧₊˚༺☆ the royal blog ☆༻*ੈ✩‧₊</div>
+            <div class="window-content">
+                <p>Content goes here...</p>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}

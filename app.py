@@ -32,7 +32,10 @@ def index():
 
 @app.route("/home", methods=["GET", "POST"])
 def home():
-    return render_template("home.html")
+    if check_escape(session.sid) != 0:
+        return render_template("home.html", windowclass="windowleft scoreable")
+    else:
+        return render_template("home.html", windowclass="windowleft")
 
 @app.route("/princess", methods=["GET", "POST"])
 def princess():
@@ -50,6 +53,10 @@ def dungeon():
 def balcony():
     return render_template("balcony.html")
 
+@app.route("/computer", methods=["GET", "POST"])
+def computer():
+    return render_template("computer.html")
+
 
 
 #  INTERACTIONS AND SCORING
@@ -57,12 +64,18 @@ def balcony():
 ITEM_POINTS = {
     'test_good': 3,
     'test_bad': -1,
+    'portrait': 0,
+    'window':0,
     'stairs': 2,
     'hole': -2,
     'balcony': 5,
     'yarn': 5,
     'bed': 3,
     'no_rest': -3,
+    'computer': -5,
+    'plant': 1,
+    'home': -2,
+    'quit': 2,
 }
 
 @app.route('/save', methods=['POST'])
@@ -108,6 +121,31 @@ def get_score(user_id):
     conn.close()
     
     return result if result else 0
+
+def check_escape(user_id):
+    conn = sqlite3.connect('database.db')
+    db = conn.cursor()
+    
+    # Check if the user has collected the yarn
+    db.execute('SELECT 1 FROM history WHERE user = ? AND item = ?', (user_id, 'yarn'))
+    
+    yarn = db.fetchone()
+
+    db.execute('SELECT 1 FROM history WHERE user = ? AND item = ?', (user_id, 'cable'))
+
+    cable = db.fetchone()
+
+    conn.close()
+    
+    if yarn and cable:
+        return 3
+    elif yarn:
+        return 2
+    elif cable:
+        return 1
+    else:
+        return 0
+    
 
 if __name__ == "__main__":
     app.run(port=8000, debug=True)

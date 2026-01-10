@@ -22,6 +22,9 @@ if (localStorage.getItem('bed_clicked') === 'true') {
 // send values of clicked items
 
 let bedTimerInterval; // Store timer ID globally
+// Setup variables for the Plant popup
+const plantPopup = document.getElementById('planterror');
+let plantFadeTimer;
 
 document.querySelectorAll('.scoreable').forEach(element => {
     element.addEventListener('click', function() {
@@ -51,41 +54,57 @@ document.querySelectorAll('.scoreable').forEach(element => {
         }
 
         
-        // --- BED LOGIC ---
-        if (val === 'bed') {
-            // A. DISABLE LOGIC: Stop future clicks
-            this.style.pointerEvents = 'none'; // Makes it unclickable
-            this.style.cursor = 'default';     // Changes cursor back to arrow
-            this.style.opacity = '0.7';        // Dims the bed to show it is "done"
+    // --- BED LOGIC ---
+    if (val === 'bed') {
+        // A. DISABLE LOGIC: Stop future clicks
+        this.style.pointerEvents = 'none'; // Makes it unclickable
+        this.style.cursor = 'default';     // Changes cursor back to arrow
+        this.style.opacity = '0.7';        // Dims the bed to show it is "done"
 
-            // remember it was clicked
-            localStorage.setItem('bed_clicked', 'true');
+        // remember it was clicked
+        localStorage.setItem('bed_clicked', 'true');
 
-            // POPUP LOGIC
-            const overlay = document.getElementById('bed-overlay');
-            const timerText = document.getElementById('timer-count');
-            
-            // Reset timer
-            clearInterval(bedTimerInterval);
-            let timeLeft = 10;
-            timerText.innerText = timeLeft;
-            
-            // Show overlay
-            overlay.style.display = 'flex';
-            
-            // Start Countdown 
-            bedTimerInterval = setInterval(function(){
-              timeLeft--; 
-              timerText.innerText = timeLeft;
+        // POPUP LOGIC
+        const overlay = document.getElementById('bed-overlay');
+        const timerText = document.getElementById('timer-count');
+        
+        // Reset timer
+        clearInterval(bedTimerInterval);
+        let timeLeft = 10;
+        timerText.innerText = timeLeft;
+        
+        // Show overlay
+        overlay.style.display = 'flex';
+        
+        // Start Countdown 
+        bedTimerInterval = setInterval(function(){
+          timeLeft--; 
+          timerText.innerText = timeLeft;
 
-              if(timeLeft <= 0){
-                  clearInterval(bedTimerInterval);
-                  overlay.style.display = 'none';
-              } 
-          }, 1000);
-      }
-  });
+          if(timeLeft <= 0){
+              clearInterval(bedTimerInterval);
+              overlay.style.display = 'none';
+          } 
+      }, 1000);
+    }
+      
+    // --- NEW Plant Logic ---
+    if (val === 'plant') {
+        // Show the popup
+        if (plantPopup) {
+            plantPopup.classList.add('show');
+
+            // Reset timer if clicked again rapidly
+            clearTimeout(plantFadeTimer);
+
+            // Hide after 3 seconds
+            plantFadeTimer = setTimeout(() => {
+                plantPopup.classList.remove('show');
+            }, 3000);
+        }
+    }
 });
+  });
 
 // close the yarn alert
 const closeAlertBtn = document.getElementById('close-alert');
@@ -153,3 +172,36 @@ window.addEventListener("load", (event) => {
       {image: '/static/img/pinkcursorresize.png'}
     );
   });  
+
+
+//draggable computer window
+
+const dragger = document.querySelector(".window-container");
+const handle = document.querySelector(".window-header");
+
+let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+handle.onmousedown = dragMouseDown;
+
+function dragMouseDown(e) {
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+}
+
+function elementDrag(e) {
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    dragger.style.top = (dragger.offsetTop - pos2) + "px";
+    dragger.style.left = (dragger.offsetLeft - pos1) + "px";
+}
+
+function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+}

@@ -15,6 +15,18 @@ body {
     cursor: pointer;
 }
 
+.scoreable :hover {
+    transform: scale(1.02) rotate(2deg);
+    transition: transform 0.2s;
+}
+
+.homescreen{
+    position:relative;
+    z-index: 2;
+    width: 100%;
+    height: 900px;
+}
+
 /*marquee*/
 .marquee {
     overflow: hidden;
@@ -46,12 +58,6 @@ body {
     height: 100%;
 }
 
-.homescreen{
-    position:relative;
-    z-index: 2;
-    width: 100%;
-    height: 900px;
-}
 .windowleft img{
     position: absolute;
     left: 1vw;
@@ -266,4 +272,109 @@ body {
     top: 7vw;
     left: 17vw;
     width: 22vw;
+}
+
+/*dungeon*/
+.dungeonbg{
+    position: fixed;
+    z-index: 1;
+    background-image: url(img/TILES01.png);
+    background-repeat: repeat;
+    filter: opacity(0.4);
+    width: 100%;
+    height: 100%;
+}
+
+.plant img{
+    position: absolute;
+    top: 2vw;
+    left: 5vw;
+    width: 25vw;
+}
+
+.planterror img {
+    position: fixed;
+    z-index: 1000;
+    width: 10vw;
+    left: 13vw; 
+    top: 15vw; 
+    
+    /* Animation states */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 1s ease-out, visibility 1s;
+}
+
+.planterror.show img {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in;
+}
+
+.computer img{
+    position: absolute;
+    top: 11.5vw;
+    left: 38.5vw;
+    width: 22vw;
+}
+
+.desk img{
+    position: absolute;
+    top: 6vw;
+    left: 29vw;
+    width: 43vw;
+}
+
+/*computer*/
+.computerbg{
+    position: fixed;
+    z-index: 1;
+    background-image: url(img/Autumn1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.homeicon img{
+    position: absolute;
+    top: -2vw;
+    right: -2vw;
+    width: 14vw;
+    cursor: pointer;
+}
+
+.quiticon img{
+    position: absolute;
+    top: 6vw;
+    right: -2vw;
+    width: 14vw;
+    cursor: pointer;
+}
+
+.window-container {
+    position: absolute;
+    top: 10vw;
+    left: 20vw;
+    width: 60vw;
+    border: 0.2vw solid black;
+    background: white;
+    box-shadow: 0.7vw 0.7vw 0px #888888d0;
+}
+
+.window-header {
+    background: #d53f8c;
+    color: white;
+    padding: 1vw;
+    font-size: 1.3vw;
+    font-weight: bold;
+    border-bottom: 0.2vw solid black;
+    cursor: move;
+    user-select: none;
+}
+
+.window-content {
+    padding: 3vw;
+    font-size: 1vw;
 }

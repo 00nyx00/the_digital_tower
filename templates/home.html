@@ -19,10 +19,10 @@
     </div> -->
     <div class="homebg"></div>
     <div class="homescreen">
-        <div class="windowleft">
+        <div class="{{ windowclass }}" data-value="window"> 
             <img src="{{ url_for ('static', filename='img/Window2.png') }}" alt="Left Window">
         </div>
-        <div class="portrait">
+        <div class="portrait scoreable" data-value="portrait">
             <a href="/princess"><img src="{{ url_for ('static', filename='img/Portrait1.png') }}" alt="Princess Portrait"></a>
         </div>
         <div class="windowright">

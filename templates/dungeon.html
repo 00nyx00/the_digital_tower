@@ -5,7 +5,23 @@
 {% block body %}
 
 <main>
-    <a href="/home">Back to The Tower</a>
+    <div class="dungeonbg"></div>
+    <div class="homescreen">
+        <div class="plant scoreable" data-value="plant">
+            <img src="{{ url_for ('static', filename='img/Plant1.png') }}" alt="Plant">
+        </div>
+        <div class="desk">
+            <img src="{{ url_for ('static', filename='img/Desk3.png') }}" alt="Desk">
+        </div>
+        <div class="computer scoreable" data-value="computer">
+            <a href="/computer"><img src="{{ url_for ('static', filename='img/Computer1.png') }}" alt="Computer"></a>
+        </div>
+        
+
+        <div id="planterror" class="planterror">
+            <img src="{{ url_for('static', filename='img/planterror.png') }}" alt="Plant watering popup">
+        </div>
+    </div>
 </main>
 
 {% endblock %}
