@@ -5,6 +5,13 @@ if (localStorage.getItem('yarn_collected') === 'true') {
     const yarnElement = document.querySelector('.scoreable[data-value="yarn"]');
     if (yarnElement) yarnElement.style.display = 'none';
 }
+
+// on load check if cable was collected
+if (localStorage.getItem('cable_collected') === 'true') {
+    // If we found it before, hide it immediately
+    const cableElement = document.querySelector('.scoreable[data-value="cable"]');
+    if (cableElement) cableElement.style.display = 'none';
+}
     
 
 // on load check if bed was clicked
@@ -53,6 +60,20 @@ document.querySelectorAll('.scoreable').forEach(element => {
             }
         }
 
+        if (val === 'cable') {
+            // Hide the element
+            this.style.display = 'none'; 
+  
+            // remember it was found
+              localStorage.setItem('cable_collected', 'true');
+            
+            // Show the custom alert overlay
+              const overlay = document.getElementById('cable-alert');
+              if (overlay) {
+                  overlay.style.display = 'flex'; // 'flex' enables the centering from CSS
+              }
+          }
+
         
     // --- BED LOGIC ---
     if (val === 'bed') {
@@ -88,7 +109,7 @@ document.querySelectorAll('.scoreable').forEach(element => {
       }, 1000);
     }
       
-    // --- NEW Plant Logic ---
+    // ---Plant Logic ---
     if (val === 'plant') {
         // Show the popup
         if (plantPopup) {
@@ -111,6 +132,13 @@ const closeAlertBtn = document.getElementById('close-alert');
 if (closeAlertBtn) {
     closeAlertBtn.addEventListener('click', function() {
         document.getElementById('yarn-alert').style.display = 'none';
+    });
+}
+// close the cable alert
+const closeAlertBtnCable = document.getElementById('close-alert-cable');
+if (closeAlertBtnCable) {
+    closeAlertBtnCable.addEventListener('click', function() {
+        document.getElementById('cable-alert').style.display = 'none';
     });
 }
 // close bed alert

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}escape{% endblock %}
+
+{% block body %}
+
+<main>
+    <div class="homebg"></div>
+    <div class="homescreen">
+        <div class="deco001">
+            <img src="{{ url_for ('static', filename='img/deco001.png') }}" alt="Decoration">
+        </div>
+        <div class="deco002">
+            <img src="{{ url_for ('static', filename='img/deco002.png') }}" alt="Decoration">
+        </div>
+        <div class="deco003">
+            <img src="{{ url_for ('static', filename='img/deco003.jpg') }}" alt="Decoration">
+        </div>
+        <div class="deco004">
+            <img src="{{ url_for ('static', filename='img/deco004.gif') }}" alt="Decoration">
+        </div>
+        <div class="deco005">
+            <img src="{{ url_for ('static', filename='img/deco005.gif') }}" alt="Decoration">
+        </div>
+
+
+        <div class="yarninventory">
+            <img src="{{ url_for ('static', filename='img/Yarn1.png') }}" alt="Yarn" style="{{ yarnvisibility }}">
+        </div>
+        <div class="cableinventory">
+            <img src="{{ url_for ('static', filename='img/Cable1.png') }}" alt="Cable" style="{{ cablevisibility }}">
+        </div>
+        <div class="inventorybox">
+            <img src="{{ url_for ('static', filename='img/inventorybox.png') }}" alt="Inventory Box">
+        </div>
+
+        <div class="escapewindow">
+            <img src="{{ url_for ('static', filename='img/WindowOpen.png') }}" alt="Escape Window">
+        </div>
+
+    </div>
+
+
+</main>
+
+{% endblock %}

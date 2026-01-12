@@ -33,9 +33,9 @@ def index():
 @app.route("/home", methods=["GET", "POST"])
 def home():
     if check_escape(session.sid) != 0:
-        return render_template("home.html", windowclass="windowleft scoreable")
+        return render_template("home.html", windowclass="windowleft scoreable", windowlink="/escape")
     else:
-        return render_template("home.html", windowclass="windowleft")
+        return render_template("home.html", windowclass="windowleft", windowlink="#")
 
 @app.route("/princess", methods=["GET", "POST"])
 def princess():
@@ -57,6 +57,26 @@ def balcony():
 def computer():
     return render_template("computer.html")
 
+@app.route("/escape", methods=["GET", "POST"])
+def escape():
+    if check_escape(session.sid) == 2:
+        return render_template("escape.html", yarnvisibility="visibility: visible", cablevisibility="visibility: hidden", windowlink="/cable_escape")
+    elif check_escape(session.sid) == 1:
+        return render_template("escape.html", yarnvisibility="visibility: hidden", cablevisibility="visibility: visible", windowlink="/yarn_escape")
+    else:
+        if get_score(session.sid) >= 0:
+            return render_template("escape.html", yarnvisibility="visibility: visible", cablevisibility="visibility: visible", windowlink="/yarn_escape")
+        else:
+            return render_template("escape.html", yarnvisibility="visibility: visible", cablevisibility="visibility: visible", windowlink="/cable_escape")
+        
+@app.route("/yarn_escape", methods=["GET", "POST"])
+def yarn_escape():
+    return render_template("yarn_escape.html") 
+
+@app.route("/cable_escape", methods=["GET", "POST"])
+def cable_escape():
+    return render_template("cable_escape.html")
+
 
 
 #  INTERACTIONS AND SCORING
@@ -76,6 +96,7 @@ ITEM_POINTS = {
     'plant': 1,
     'home': -2,
     'quit': 2,
+    'cable': -5,
 }
 
 @app.route('/save', methods=['POST'])
@@ -148,4 +169,4 @@ def check_escape(user_id):
     
 
 if __name__ == "__main__":
-    app.run(port=8000, debug=True)
+    app.run(port=5000, debug=True)

@@ -10,6 +10,12 @@
         <div class="plant scoreable" data-value="plant">
             <img src="{{ url_for ('static', filename='img/Plant1.png') }}" alt="Plant">
         </div>
+        <div class="shelf">
+            <img src="{{ url_for ('static', filename='img/Shelf1.png') }}" alt="Shelf">
+        </div>
+        <div class="cable scoreable" data-value="cable">
+            <img src="{{ url_for ('static', filename='img/Cable1.png') }}" alt="Cable">
+        </div>
         <div class="desk">
             <img src="{{ url_for ('static', filename='img/Desk3.png') }}" alt="Desk">
         </div>
@@ -18,8 +24,19 @@
         </div>
         
 
+        <div class="backhomearrow">
+            <a href="/home"><img src="{{ url_for('static', filename='img/Arrow.png') }}" alt="Back Home"></a>
+        </div>
+        
+
         <div id="planterror" class="planterror">
             <img src="{{ url_for('static', filename='img/planterror.png') }}" alt="Plant watering popup">
+        </div>
+        <div id="cable-alert" style="display: none;">
+            <div class="alert-box">
+                <img src="{{ url_for('static', filename='img/cableerror.png') }}" alt="Cable Found!">
+                <button id="close-alert-cable">collect</button>
+            </div>
         </div>
     </div>
 </main>

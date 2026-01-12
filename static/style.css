@@ -27,6 +27,19 @@ body {
     height: 900px;
 }
 
+.backhomearrow img{
+    position: absolute;
+    top: -3vw;
+    left: 0vw;
+    width: 13vw;
+}
+
+/*source for this and more: https://codepen.io/yvana/pen/XWJMKxg*/
+.backhomearrow :hover{
+    transition: all 0.6s;
+    transform: rotateZ(360deg) scale(1.3);
+}
+
 /*marquee*/
 .marquee {
     overflow: hidden;
@@ -119,15 +132,6 @@ body {
     width: 40vw;
 }
 
-.backhome a{
-    position: absolute;
-    top: 1vw;
-    right: 2vw;
-    width: 1vw;
-    font-size: 1.6vw;
-    color: white;
-    text-decoration: none;
-}
 
 /*bedroom*/
 .bedroombg{
@@ -315,15 +319,51 @@ body {
 .computer img{
     position: absolute;
     top: 11.5vw;
-    left: 38.5vw;
+    left: 35.5vw;
     width: 22vw;
+}
+
+.shelf img{
+    position: absolute;
+    top: 20vw;
+    left: 70vw;
+    width: 26vw;
 }
 
 .desk img{
     position: absolute;
     top: 6vw;
-    left: 29vw;
+    left: 26vw;
     width: 43vw;
+}
+
+.cable img{
+    position: absolute;
+    top: 31vw;
+    left: 78.8vw;
+    width: 13vw;
+}
+
+#cable-alert {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    z-index: 1000; /* Ensure it sits on top of everything */
+
+}
+
+#close-alert-cable {
+    position: relative;
+    top: 18.2vw;
+    left: 38.2vw;
+    width: 5.3vw;
+    height: 1.7vw;
+    background-color: #c0c0c0;
+    animation: popIn 0.2s ease; /* Optional nice animation */
+
 }
 
 /*computer*/
@@ -377,4 +417,83 @@ body {
 .window-content {
     padding: 3vw;
     font-size: 1vw;
+}
+
+/*escape*/
+.escapewindow img{
+    position: absolute;
+    top: -3vw;
+    left: 23vw;
+    width: 50vw;
+}
+
+.escapewindow :hover{
+    scale: 1.5;
+    transition: scale 8s ease-in;
+    animation: tilt-n-move-shaking 0.16s infinite;
+}
+
+/* https://unused-css.com/blog/css-shake-animation/ */
+@keyframes tilt-n-move-shaking {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(1px, 1px) rotate(1deg); }
+    50% { transform: translate(0, 0) rotate(0eg); }
+    75% { transform: translate(-1px, 1px) rotate(-1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+
+.deco001 img{
+    position: absolute;
+    top: 28.8vw;
+    left: 75.8vw;
+    width: 25vw;
+}
+
+.deco002 img{
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+    width: 10vw;
+}
+
+.deco003 img{
+    position: absolute;
+    top: 5vw;
+    left: 25vw;
+    width: 12vw;
+}
+
+.deco004 img{
+    position: absolute;
+    top: 21vw;
+    left: 1.5vw;
+    width: 25vw;
+}
+
+.deco005 img{
+    position: absolute;
+    top: 1vw;
+    left: 73vw;
+    width: 18vw;
+} 
+
+.inventorybox img{
+    position: absolute;
+    top: 27vw;
+    left: 3vw;
+    width: 28vw;
+}
+
+.yarninventory img{
+    position: absolute;
+    top: 41vw;
+    left: 3vw;
+    width: 10vw;
+}
+
+.cableinventory img{
+    position: absolute;
+    top: 33vw;
+    left: 19vw;
+    width: 9vw;
 }
