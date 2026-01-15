@@ -23,7 +23,9 @@
             <img src="{{ url_for ('static', filename='img/deco005.gif') }}" alt="Decoration">
         </div>
 
-
+        <div class="ransome">
+            <img src="{{ url_for ('static', filename='img/ransome2.png') }}" alt="will you escape the digital tower?">
+        </div>
         <div class="yarninventory">
             <img src="{{ url_for ('static', filename='img/Yarn1.png') }}" alt="Yarn" style="{{ yarnvisibility }}">
         </div>
@@ -34,8 +36,8 @@
             <img src="{{ url_for ('static', filename='img/inventorybox.png') }}" alt="Inventory Box">
         </div>
 
-        <div class="escapewindow">
-            <img src="{{ url_for ('static', filename='img/WindowOpen.png') }}" alt="Escape Window">
+        <div class="escapewindow scoreable" data-value="{{ noreturn }}">
+            <a href="{{ windowlink}}"><img src="{{ url_for ('static', filename='img/WindowOpen.png') }}" alt="Escape Window"></a>
         </div>
 
     </div>

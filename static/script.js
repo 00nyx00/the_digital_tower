@@ -33,8 +33,9 @@ let bedTimerInterval; // Store timer ID globally
 const plantPopup = document.getElementById('planterror');
 let plantFadeTimer;
 
+
 document.querySelectorAll('.scoreable').forEach(element => {
-    element.addEventListener('click', function() {
+    element.addEventListener('click', function(e) {
         // 1. Get the value (e.g., 'test_good' or 'test_bad')
         let val = this.getAttribute('data-value');
 
@@ -124,8 +125,26 @@ document.querySelectorAll('.scoreable').forEach(element => {
             }, 3000);
         }
     }
+
+    // ---Sparkle Logic ---
+    const sparkle = this.querySelector('.sparkle');
+
+        if (sparkle) {
+            sparkle.style.position = 'fixed'; 
+
+            //  Set the position to the mouse coordinates
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+
+            sparkle.classList.add('show');
+
+            // Hide after 3 seconds
+            setTimeout(() => {
+                sparkle.classList.remove('show');
+            }, 2000);
+        }
+    });
 });
-  });
 
 // close the yarn alert
 const closeAlertBtn = document.getElementById('close-alert');
@@ -149,6 +168,7 @@ if (closeBedBtn) {
         clearInterval(bedTimerInterval);
     });
 }
+
 
 
 
@@ -233,3 +253,4 @@ function closeDragElement() {
     document.onmouseup = null;
     document.onmousemove = null;
 }
+

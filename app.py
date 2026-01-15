@@ -60,17 +60,18 @@ def computer():
 @app.route("/escape", methods=["GET", "POST"])
 def escape():
     if check_escape(session.sid) == 2:
-        return render_template("escape.html", yarnvisibility="visibility: visible", cablevisibility="visibility: hidden", windowlink="/cable_escape")
+        return render_template("escape.html", yarnvisibility="visibility: visible", cablevisibility="visibility: hidden", windowlink="/yarn_escape", noreturn="yarn_escape")
     elif check_escape(session.sid) == 1:
-        return render_template("escape.html", yarnvisibility="visibility: hidden", cablevisibility="visibility: visible", windowlink="/yarn_escape")
+        return render_template("escape.html", yarnvisibility="visibility: hidden", cablevisibility="visibility: visible", windowlink="/cable_escape", noreturn="cable_escape")
     else:
         if get_score(session.sid) >= 0:
-            return render_template("escape.html", yarnvisibility="visibility: visible", cablevisibility="visibility: visible", windowlink="/yarn_escape")
+            return render_template("escape.html", yarnvisibility="visibility: visible", cablevisibility="visibility: visible", windowlink="/yarn_escape", noreturn="yarn_escape")
         else:
-            return render_template("escape.html", yarnvisibility="visibility: visible", cablevisibility="visibility: visible", windowlink="/cable_escape")
-        
+            return render_template("escape.html", yarnvisibility="visibility: visible", cablevisibility="visibility: visible", windowlink="/cable_escape", noreturn="cable_escape")
+
 @app.route("/yarn_escape", methods=["GET", "POST"])
 def yarn_escape():
+
     return render_template("yarn_escape.html") 
 
 @app.route("/cable_escape", methods=["GET", "POST"])
@@ -84,18 +85,23 @@ def cable_escape():
 ITEM_POINTS = {
     'test_good': 3,
     'test_bad': -1,
+    'yarn_escape': 99,
+    'cable_escape': -99,
     'portrait': 0,
     'window':0,
-    'stairs': 2,
-    'hole': -2,
+    'stars':1,
+    'plant': 1,
+    'painting': 1,
+    'quit': 2,
+    'stairs': 2,  
+    'bed': 3,
     'balcony': 5,
     'yarn': 5,
-    'bed': 3,
+    'telescope': -1,
+    'hole': -2,
+    'home': -2,
     'no_rest': -3,
     'computer': -5,
-    'plant': 1,
-    'home': -2,
-    'quit': 2,
     'cable': -5,
 }
 
@@ -169,4 +175,4 @@ def check_escape(user_id):
     
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    app.run(port=8000, debug=True)

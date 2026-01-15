@@ -7,11 +7,18 @@
 <main>
     <div class="bedroombg"></div>
     <div class="homescreen">
+        <div class="nightstand">
+            <img src="{{ url_for ('static', filename='img/Nightstand1.png') }}" alt="Nightstand">
+        </div>
         <div class="balcony scoreable" data-value="balcony">
             <a href="/balcony"><img src="{{ url_for ('static', filename='img/Balcony1.png') }}" alt="Balcony"></a>
         </div>
         <div class="bed scoreable" data-value="bed">
             <img src="{{ url_for ('static', filename='img/Bed1.png') }}" alt="Bed">
+        </div>
+        <div class="painting scoreable" data-value="painting">
+            <img src="{{ url_for ('static', filename='img/Painting1.png') }}" alt="Painting">
+            <div class="sparkle"></div>
         </div>
         <div class="basket">
             <img src="{{ url_for ('static', filename='img/Basket1.png') }}" alt="Basket">
