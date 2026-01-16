@@ -97,6 +97,7 @@ ITEM_POINTS = {
     'bed': 3,
     'balcony': 5,
     'yarn': 5,
+    'electric': -1,
     'telescope': -1,
     'hole': -2,
     'home': -2,
