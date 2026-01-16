@@ -55,7 +55,7 @@ def balcony():
 
 @app.route("/computer", methods=["GET", "POST"])
 def computer():
-    return render_template("computer.html")
+    return render_template("page1.html")
 
 @app.route("/escape", methods=["GET", "POST"])
 def escape():

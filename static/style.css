@@ -470,10 +470,12 @@ body {
     top: 10vw;
     left: 20vw;
     width: 60vw;
+    height: 40vw;
     border: 0.2vw solid black;
-    background: white;
+    background-image: url(img/CLOVER2.JPG);
     box-shadow: 0.7vw 0.7vw 0px #888888d0;
     background-attachment: scroll;
+
 }
 
 .window-header {
@@ -491,6 +493,15 @@ body {
     padding: 3vw;
     font-size: 1vw;
 }
+
+/* page1 */
+
+.horse img{
+    position: absolute;
+    width: 20vw;
+
+}
+
 
 /*escape*/
 .escapewindow img{
@@ -696,6 +707,7 @@ body {
 /* yarn escape */
 body.scroll-x {
     overflow-x: auto; /*love creating problems for myself don't i🫠*/
+    overflow-y: hidden
 }
 
 .yarnscreen{
@@ -704,19 +716,21 @@ body.scroll-x {
     height: 100%;
     width: fit-content;
     min-width: 100vw;
+    margin: 0;
 
 }
 
 .yarnbg{
     position: absolute;
     z-index: 1;
-    background-image: linear-gradient(0.25turn, rgb(188, 255, 164), rgb(46, 61, 32), rgb(39, 0, 19), #d53f8c);
-    min-width: 100%;
-    height: 100vh;
+    background-image: linear-gradient(0.25turn, #b9ceb9, rgb(46, 61, 32), rgb(39, 0, 19), #d53f8c);
+    width: calc(100% + 100vw); /* scarfmid left value*/
+    height: 99vh;
 }
 
 .scarfmid{
-    width: 7000px;
+    width: 8000px;
+    margin-right: 14vw;
     height: 30vw;
     position: relative;
     background-image: url(img/Scarfmid.png);
@@ -724,6 +738,59 @@ body.scroll-x {
     background-size: contain;
     z-index: 3;
     top: 10vw;
-    left: 40vw;
+    left: 100vw;
+    pointer-events: none;
 
+}
+
+.scarfleft img{
+    position: absolute;
+    width: 43vw;
+    top: 9vw;
+    left: 59.5vw;
+    z-index: 4;
+}
+
+.yarnwindow img{
+    position: absolute;
+    width: 15vw;
+    top: 5vw;
+    left: 9vw;
+    z-index:4;
+
+}
+
+.yarntower{
+    position: absolute;
+    width: 25vw;
+    height: 99vh;
+    z-index: 3;
+
+    background-image: url(img/TBrick3.png);
+    background-repeat: repeat;
+    background-size: 80%;
+
+    border: solid transparent;
+    border-width: 0 2vw 1.5vw 1vw;
+    border-image: url(img/TBrick20.png) round;
+    border-image-outset: 12px;
+    border-image-slice: 8% ;
+
+}
+
+.crochet img{
+    position: absolute;
+    width: 100vw;
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+
+.exit2 img{
+    position: absolute;
+    width: 50vw;
+    height: 41vw;
+    left: calc(100% + 50vw); /* 100 - width*/
+    top: 2.5vw;
+    z-index: 4;
 }

@@ -16,7 +16,11 @@
         <div class="window-container">
             <div class="window-header">*ੈ✩‧₊˚༺☆ the royal blog ☆༻*ੈ✩‧₊</div>
             <div class="window-content">
-                <p>Content goes here...</p>
+                {% block window_content %}
+                {% endblock %}
+                <div class="horse">
+                    <img src="{{ url_for ('static', filename='img/horseop1.png') }}" alt="horse">
+                </div>
             </div>
         </div>
     </div>
