@@ -1,0 +1,27 @@
+{% extends "computer.html" %}
+
+{% block window_content %}
+
+<div class="horse">
+    <img src="{{ url_for ('static', filename='img/horseop2.png') }}" alt="horse">
+</div>
+<div class="speech2">
+    <img src="{{ url_for ('static', filename='img/speechop1.png') }}" alt="speech bubble">
+    <p>who is your best friend?</p>
+    <button class="scoreable" data-value="balouba" onclick="setTimeout(function(){window.location.reload();}, 1000);">
+        balouba
+        <span class="sparkle"></span>
+    </button>
+    <button class="scoreable" data-value="pepis" onclick="setTimeout(function(){window.location.reload();}, 1000);">
+        pepis
+        <span class="sparkle"></span>
+    </button>
+    <div class="balouba">
+        <img src="{{ url_for ('static', filename='img/balouba.png') }}" alt="balouba">
+    </div>
+    <div class="pepis">
+        <img src="{{ url_for ('static', filename='img/pepis.png') }}" alt="pepis">
+    </div>
+</div>
+
+{% endblock %}

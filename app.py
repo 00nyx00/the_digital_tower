@@ -55,7 +55,8 @@ def balcony():
 
 @app.route("/computer", methods=["GET", "POST"])
 def computer():
-    return render_template("page1.html")
+    #return render_template(check_quiz(session.sid))
+    return render_template("page4.html")
 
 @app.route("/escape", methods=["GET", "POST"])
 def escape():
@@ -89,6 +90,8 @@ ITEM_POINTS = {
     'cable_escape': -99,
     'portrait': 0,
     'window':0,
+    'balouba': 1,
+    'yes_horse': 1,
     'stars':1,
     'plant': 1,
     'painting': 1,
@@ -97,8 +100,10 @@ ITEM_POINTS = {
     'bed': 3,
     'balcony': 5,
     'yarn': 5,
+    'pepis': -1,
     'electric': -1,
     'telescope': -1,
+    'no_horse': -2,
     'hole': -2,
     'home': -2,
     'no_rest': -3,
@@ -173,6 +178,35 @@ def check_escape(user_id):
         return 1
     else:
         return 0
+    
+def check_quiz(user_id):
+    conn = sqlite3.connect('database.db')
+    db = conn.cursor()
+    
+    # Check if the user is horse
+    db.execute('SELECT 1 FROM history WHERE user = ? AND item = ?', (user_id, 'yes_horse'))
+    
+    is_horse = db.fetchone()
+
+    db.execute('SELECT 1 FROM history WHERE user = ? AND item = ?', (user_id, 'no_horse'))
+
+    isnt_horse = db.fetchone()
+    
+    db.execute('SELECT 1 FROM history WHERE user = ? AND item IN (?, ?)', (user_id, 'balouba', 'pepis'))
+
+    has_friend = db.fetchone()
+
+    conn.close()
+
+    if is_horse:
+        return "page2.html"
+    elif isnt_horse and not has_friend:
+        return "page3.html"
+    elif has_friend:
+        return "page4.html"
+    else:
+        return "page1.html"
+
     
 
 if __name__ == "__main__":

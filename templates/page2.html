@@ -1,0 +1,16 @@
+{% extends "computer.html" %}
+
+{% block window_content %}
+
+<div class="horsesgif">
+    <img src="{{ url_for ('static', filename='img/horses1.gif') }}" alt="horses">
+</div>
+<div class="congrats">
+    <img src="{{ url_for ('static', filename='img/congratulations.gif') }}" alt="congrats">
+</div>
+
+<div class="backhomearrow exitcomputer">
+    <a href="/dungeon"><img src="{{ url_for('static', filename='img/Arrow.png') }}" alt="Back Home"></a>
+</div>
+
+{% endblock %}

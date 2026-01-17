@@ -5,6 +5,19 @@
 <div class="horse">
     <img src="{{ url_for ('static', filename='img/horseop1.png') }}" alt="horse">
 </div>
+<div class="speech1">
+    <img src="{{ url_for ('static', filename='img/speechop1.png') }}" alt="speech bubble">
+    <p>are you a horse?</p>
+    <button class="scoreable" data-value="yes_horse" onclick="setTimeout(function(){window.location.reload();}, 1000);">
+        yes
+        <span class="sparkle"></span>
+    </button>
+    <button class="scoreable" data-value="no_horse" onclick="setTimeout(function(){window.location.reload();}, 1000);">
+        no
+        <span class="sparkle"></span>
+    </button>
+</div>
+
 
 
 

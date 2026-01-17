@@ -138,7 +138,7 @@ document.querySelectorAll('.scoreable').forEach(element => {
 
             sparkle.classList.add('show');
 
-            // Hide after 3 seconds
+            // Hide after time
             setTimeout(() => {
                 sparkle.classList.remove('show');
             }, 2000);
