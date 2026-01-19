@@ -36,10 +36,10 @@ let plantFadeTimer;
 
 document.querySelectorAll('.scoreable').forEach(element => {
     element.addEventListener('click', function(e) {
-        // 1. Get the value (e.g., 'test_good' or 'test_bad')
+        //  Get the value (e.g., 'test_good' or 'test_bad')
         let val = this.getAttribute('data-value');
 
-        // 2. Send it to your /save route
+        // Send it to your /save route
         fetch('/save', {
             method: 'POST',
             body: new URLSearchParams({'value': val}),
@@ -78,7 +78,7 @@ document.querySelectorAll('.scoreable').forEach(element => {
         
     // --- BED LOGIC ---
     if (val === 'bed') {
-        // A. DISABLE LOGIC: Stop future clicks
+        
         this.style.pointerEvents = 'none'; // Makes it unclickable
         this.style.cursor = 'default';     // Changes cursor back to arrow
         this.style.opacity = '0.7';        // Dims the bed to show it is "done"
@@ -126,6 +126,13 @@ document.querySelectorAll('.scoreable').forEach(element => {
         }
     }
 
+    //restart logic
+    if (val === 'restart') {
+        window.location.href = '/';
+        return;
+      }
+
+
     // ---Sparkle Logic ---
     const sparkle = this.querySelector('.sparkle');
 
@@ -143,6 +150,7 @@ document.querySelectorAll('.scoreable').forEach(element => {
                 sparkle.classList.remove('show');
             }, 2000);
         }
+
     });
 });
 

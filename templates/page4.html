@@ -2,5 +2,24 @@
 
 {% block window_content %}
 
+<div class="deco008">
+    <img src="{{ url_for ('static', filename='img/deco008.gif') }}" alt="decoration">
+</div>
+<div class="angrycomputer">
+    <img src="{{ url_for ('static', filename='img/angrycomputer.jpg') }}" alt="computer decoration">
+</div>
+<div class="deco006">
+    <img src="{{ url_for ('static', filename='img/deco006.gif') }}" alt="decoration">
+</div>
+<div class="deco007">
+    <img src="{{ url_for ('static', filename='img/deco007.jpg') }}" alt="decoration">
+</div>
+
+
+<p class="page4text"> liar! {{ bestie }} is <span style ="font-weight: 900; color:red">my</span> bestie. intruder begone from the royal computer!! </p>
+
+<div class="backhomearrow exitcomputer scoreable" data-value="quiz_finished"> 
+    <a href="/dungeon"><img src="{{ url_for('static', filename='img/Arrow.png') }}" alt="Back Home"></a>
+</div>
 
 {% endblock %}

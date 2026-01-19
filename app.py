@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, redirect, url_for
 from flask_session import Session
 import sqlite3
 
@@ -55,8 +55,13 @@ def balcony():
 
 @app.route("/computer", methods=["GET", "POST"])
 def computer():
-    #return render_template(check_quiz(session.sid))
-    return render_template("page4.html")
+    template_name, bestie_name = check_quiz(session.sid)
+    
+    # **bestie_name unpacks the dictionary into arguments
+    # It becomes: render_template("page4.html", bestie="balouba")
+    return render_template(template_name, **bestie_name)
+
+    #return render_template("page4.html", bestie ="balouba")
 
 @app.route("/escape", methods=["GET", "POST"])
 def escape():
@@ -79,6 +84,13 @@ def yarn_escape():
 def cable_escape():
     return render_template("cable_escape.html")
 
+@app.route("/you_are_free", methods=["GET", "POST"])
+def you_are_free():
+    return render_template("yarn_final.html") 
+
+@app.route("/are_you_free", methods=["GET", "POST"])
+def are_you_free():
+    return render_template("cable_final.html")
 
 
 #  INTERACTIONS AND SCORING
@@ -88,8 +100,10 @@ ITEM_POINTS = {
     'test_bad': -1,
     'yarn_escape': 99,
     'cable_escape': -99,
+    'quiz_finished': 0,
     'portrait': 0,
     'window':0,
+    'restart': 0,
     'balouba': 1,
     'yes_horse': 1,
     'stars':1,
@@ -115,6 +129,15 @@ ITEM_POINTS = {
 def save():
     # Grab the value sent by JavaScript
     item_name = request.form.get('value')
+
+    if item_name == "restart":
+        # This "kills" the current session
+        session.clear() 
+        
+        print("SESSION WIPED: User will get a new ID")
+        
+        # Force a page reload so Flask generates the new ID
+        return redirect(url_for("index"))
     
     #  Use session ID as user identifier
     user_id = session.sid
@@ -192,20 +215,41 @@ def check_quiz(user_id):
 
     isnt_horse = db.fetchone()
     
-    db.execute('SELECT 1 FROM history WHERE user = ? AND item IN (?, ?)', (user_id, 'balouba', 'pepis'))
+    #check if user has a bestie
+    db.execute('SELECT item FROM history WHERE user = ? AND item IN (?, ?)', (user_id, 'balouba', 'pepis'))
 
     has_friend = db.fetchone()
 
+    #check if user has finished the quiz(and went back by arrow)
+    db.execute('SELECT 1 FROM history WHERE user = ? AND item = ?', (user_id, 'quiz_finished'))
+
+    quiz_ended = db.fetchone()
+
     conn.close()
 
-    if is_horse:
-        return "page2.html"
+    if quiz_ended:
+        conn = sqlite3.connect('database.db')
+        db = conn.cursor()
+
+        db.execute('DELETE FROM history WHERE user = ? AND item IN (?, ?, ?, ?, ?)', (user_id, 'yes_horse', 'no_horse', 'balouba', 'pepis','quiz_finished'))
+        conn.commit()
+        conn.close()
+
+        print(f"--- Data deleted. Quiz reset for this user {user_id}) ---")
+        return "page1.html", {} # Empty dict because page1 needs no variables
+        
+        
+    elif is_horse:
+        return "page2.html", {}
+        
     elif isnt_horse and not has_friend:
-        return "page3.html"
+        return "page3.html", {}
+        
     elif has_friend:
-        return "page4.html"
+        return "page4.html", {"bestie": has_friend[0]}
+        
     else:
-        return "page1.html"
+        return "page1.html", {}
 
     
 

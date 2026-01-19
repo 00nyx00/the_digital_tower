@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
 body {
     position: relative;
     margin: 0;
@@ -6,7 +8,7 @@ body {
 	overflow-x: hidden;
     background-color: rgb(76, 46, 46);
     cursor: url(img/pinkcursorresize.png), auto;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "DotGothic16",'Courier New', Courier, monospace;
     
 }
 
@@ -73,12 +75,60 @@ body {
     z-index: 1000;
   }
   
-  .marquee h1{
-    font-family: 'Courier New', Courier, monospace;
+.marquee h1{
     color: #d53f8c;
     font-size: 1em;
     white-space: nowrap;
-  }
+}
+
+
+/* index */
+
+.indexbg{
+    position: fixed;
+    z-index: 1;
+    background-image: url(img/197.GIF);
+    background-repeat: repeat;
+    filter: opacity(0.8);
+    width: 100%;
+    height: 100%;
+}
+
+.deco013 img{
+    position: absolute;
+    top: 20vw;
+    left: 20vw;
+    width: 18vw;
+}
+
+.deco014 img{
+    position: absolute;
+    top: 10vw;
+    left: 34vw;
+    width: 30vw;
+}
+
+.deco015 img{
+    position: absolute;
+    top: 5vw;
+    left: 28vw;
+    width: 10vw;
+}
+
+.indextext{
+    position:absolute;
+    background-color: #d0ceceeb;
+    padding: 1.5vw;
+    border: 0.5vw dashed #d53f8c;
+    color:#d53f8c;
+    font-weight: 600;
+    width: 25vw;
+    top: 38vw;
+    right: 10vw;
+    pointer-events: none;
+
+}
+
 
 
 /*home*/
@@ -161,9 +211,11 @@ body {
     top: 16.5vw;
     left:20vw;
     width: 30vw;
-    font-family: 'Courier New', Courier, monospace;
     color: white;
-    font-size: 1vw;
+    font-size: 1.2vw;
+    background-color: #b4b3b30b;
+    padding: 1vw;
+    font-family: "DotGothic16";
 }
 
 .aboutportrait img{
@@ -258,6 +310,7 @@ body {
     height: 1.7vw;
     background-color: #c0c0c0;
     animation: popIn 0.2s ease; /* Optional nice animation */
+    font-family: 'Courier New', Courier, monospace;
 
 }
 
@@ -291,10 +344,11 @@ body {
     top: 20.1vw;
     left: 58.7vw;
     font-size: 1.4vw;
-    font-weight: bold;
+    font-weight: 800;
     color: #939393;
     cursor: pointer;
     z-index:1001;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .close-x:hover {
@@ -611,6 +665,47 @@ body {
     height: 10vw;
 }
 
+/* page 4 */
+.page4text {
+    position: absolute;
+    background-color: #d0ceceeb;
+    padding: 1.5vw;
+    border: 0.5vw dashed #d53f8c;
+    color:#d53f8c;
+    font-weight: 700;
+    font-size: 1.05vw;
+    width: 20vw;
+    top: 8vw;
+    left: 5vw;
+}
+
+.angrycomputer img{
+    position: absolute;
+    right: 3vw;
+    top: 15vw;
+    width: 35vw;
+}
+
+.deco006 img{
+    position: absolute;
+    left: 30vw;
+    top: 7vw;
+    width: 10vw;
+}
+
+.deco007 img{
+    position: absolute;
+    left: 8vw;
+    top: 19vw;
+    width: 15vw;
+}
+
+.deco008 img{
+    position: absolute;
+    right: 6vw;
+    top: 9vw;
+    width: 6vw;
+}
 
 
 /*escape*/
@@ -903,4 +998,115 @@ body.scroll-x {
     left: calc(100% + 50vw); /* 100 - width*/
     top: 2.5vw;
     z-index: 4;
+}
+
+
+/* yarn final */
+
+.video_bg{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+.pigeon img{
+    position: absolute;
+    top: 7vw;
+    left: 0vw;
+    width: 14vw;
+    animation: fly 10s linear infinite;
+}
+
+@keyframes fly{
+    0% { transform: translate(110vw, -1vw) }
+    50% { transform: translate(40vw, 2vw) }
+    100% { transform: translate(-30vw, -4vw) }
+    
+}
+
+.rabbit img{
+    position: absolute;
+    top: 33vw;
+    left: 10vw;
+    width: 10vw;
+}
+
+.yarnfinalmessage{
+    position:absolute;
+    background-color: #d0ceceeb;
+    padding: 1.5vw;
+    border: 0.5vw dashed #d53f8c;
+    color:#d53f8c;
+    font-weight: 600;
+    width: 25vw;
+    top: 28vw;
+    right: 15vw;
+    pointer-events: none;
+}
+
+.restart img{
+    position:absolute;
+    border: 0.2vw dashed #d53f8c;
+    width: 10vw;
+    top: 40.2vw;
+    right: 17vw;
+}
+
+/* cable final */
+
+.cablefinalmessage{
+    position:absolute;
+    background-color: #d53f8cc0;
+    padding: 1.5vw;
+    border: 0.5vw dashed #b4b3b3;
+    color: #b4b3b3;
+    font-weight: 600;
+    width: 25vw;
+    top: 8vw;
+    left: 15vw;
+    pointer-events: none;
+}
+
+.deco009{
+    position:absolute;
+    background-image: url(img/glitch1.gif);
+    background-size: cover;
+    top: 0vw;
+    right:0;
+    width: 30vw;
+    height: 35vw;
+    opacity: 0.4;
+}
+
+.deco012 img{
+    position: absolute;
+    width: 25vw;
+    top: 30vw;
+    left: 0;
+}
+
+.deco010 img{
+    position: absolute;
+    width: 25vw;
+    top: 20vw;
+    left: 0vw;
+    opacity: 0.8;
+    animation: run 3s linear infinite;
+}
+
+@keyframes run{
+    0% { transform: translate(-25vw, 0vw) }
+    100% { transform: translate(120vw, 0vw) }
+}
+
+#deco010f2 img{
+    animation-delay: -1.5s;
+}
+
+.deco011 img{
+    position: absolute;
+    width: 5vw;
+    top: 3.6vw;
+    left: 16vw;
 }
