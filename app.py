@@ -264,7 +264,25 @@ def check_quiz(user_id):
     else:
         return "page1.html", {}
 
+#creating the database table
+def init_db():
+    conn = sqlite3.connect('database.db')
+    db = conn.cursor()
     
+    
+    db.execute('''
+        CREATE TABLE IF NOT EXISTS history (
+            user TEXT,
+            item TEXT,
+            score INTEGER
+        )
+    ''')
+    
+    conn.commit()
+    conn.close()
+
+init_db()
+
 
 if __name__ == "__main__":
     app.run(port=8000)
