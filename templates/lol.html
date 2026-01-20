@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}lol{% endblock %}
+
+{% block body %}
+
+<div class="lolbg">
+    <div class="backhomearrow">
+        <a href="/balcony"><img src="{{ url_for('static', filename='img/Arrow.png') }}" alt="Back Home"></a>
+    </div>
+    <div class="duck">
+        <img src="{{ url_for ('static', filename='img/duck.gif') }}" alt="Duck">
+    </div>
+</div>
+
+<audio autoplay id="lolmusic" loop>
+    <source src="{{ url_for ('static', filename='img/lol.mp3') }}" type="audio/mpeg">
+</audio>
+<script> 
+    var audio = document.getElementById("lolmusic");
+    audio.volume = 0.3;
+</script>
+
+
+
+{% endblock %}

@@ -1,4 +1,4 @@
-/* DELETE THE COMMENT MARKS BEFORE UPLOAD!!!!
+
 // on load check if yarn was collected
 if (localStorage.getItem('yarn_collected') === 'true') {
     // If we found it before, hide it immediately
@@ -24,7 +24,7 @@ if (localStorage.getItem('bed_clicked') === 'true') {
       bedElement.style.opacity = '0.7';
   }
 }
-*/
+
 
 // send values of clicked items
 
@@ -128,6 +128,9 @@ document.querySelectorAll('.scoreable').forEach(element => {
 
     //restart logic
     if (val === 'restart') {
+        // wipe the browser's memory of the items
+        localStorage.clear();
+        //redirect to index
         window.location.href = '/';
         return;
       }

@@ -35,6 +35,7 @@ body {
     top: -3vw;
     left: 0vw;
     width: 13vw;
+    z-index: 99;
 }
 
 .sparkle{
@@ -87,11 +88,25 @@ body {
 .indexbg{
     position: fixed;
     z-index: 1;
-    background-image: url(img/197.GIF);
+    background-image: url(img/bgtexture.gif), url(img/197.GIF);
     background-repeat: repeat;
-    filter: opacity(0.8);
+    background-blend-mode: lighten;
+    background-size: contain;
+    filter: opacity(0.7);
     width: 100%;
     height: 100%;
+}
+
+.bricktexture{
+    position:absolute;
+    background-image: url(img/bricktexture.png) ;
+    background-size: 30%;
+    opacity: 0.6;
+    background-repeat: repeat;
+    width: 80vw;
+    height: 40vw;
+    top:5vw;
+    left:11vw;
 }
 
 .deco013 img{
@@ -115,6 +130,50 @@ body {
     width: 10vw;
 }
 
+.deco016 img{
+    position: absolute;
+    top: 3vw;
+    left: 58vw;
+    width: 25vw;
+}
+
+.deco017 img{
+    position: absolute;
+    top: 35vw;
+    left: 34vw;
+    width: 8vw;
+}
+
+.deco018 img{
+    position: absolute;
+    top: 10vw;
+    left: 13vw;
+    width: 15vw;
+} 
+
+.deco019 img{
+    position: absolute;
+    top: 9vw;
+    left: 45vw;
+    width: 14vw;
+}
+
+.enter img{
+    position: absolute;
+    top: 15vw;
+    left: 48vw;
+    width: 20vw;
+    border: 0.2vw dashed #d53f8c;
+}
+
+.indextitle img{
+    position:absolute;
+    width: 23vw;
+    top: 25vw;
+    left: 65vw;
+    pointer-events: none;
+}
+
 .indextext{
     position:absolute;
     background-color: #d0ceceeb;
@@ -122,6 +181,7 @@ body {
     border: 0.5vw dashed #d53f8c;
     color:#d53f8c;
     font-weight: 600;
+    font-size: 1vw;
     width: 25vw;
     top: 38vw;
     right: 10vw;
@@ -311,6 +371,7 @@ body {
     background-color: #c0c0c0;
     animation: popIn 0.2s ease; /* Optional nice animation */
     font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9vw;
 
 }
 
@@ -468,19 +529,21 @@ body {
     left: 0;
     width: 100%;
     height: 110%;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-    z-index: 1000; /* Ensure it sits on top of everything */
+    background-color: rgba(0, 0, 0, 0.8); 
+    z-index: 1000; 
 
 }
 
 #close-alert-cable {
     position: relative;
-    top: 18.2vw;
-    left: 38.2vw;
+    top: 18.3vw;
+    left: 38.3vw;
     width: 5.3vw;
     height: 1.7vw;
     background-color: #c0c0c0;
-    animation: popIn 0.2s ease; /* Optional nice animation */
+    animation: popIn 0.2s ease;
+    font-family: "DotGothic16", Courier;
+    font-size: 0.8vw;
 
 }
 
@@ -1039,6 +1102,7 @@ body.scroll-x {
     border: 0.5vw dashed #d53f8c;
     color:#d53f8c;
     font-weight: 600;
+    font-size: 0.9vw;
     width: 25vw;
     top: 28vw;
     right: 15vw;
@@ -1062,6 +1126,7 @@ body.scroll-x {
     border: 0.5vw dashed #b4b3b3;
     color: #b4b3b3;
     font-weight: 600;
+    font-size: 0.9vw;
     width: 25vw;
     top: 8vw;
     left: 15vw;
@@ -1110,3 +1175,23 @@ body.scroll-x {
     top: 3.6vw;
     left: 16vw;
 }
+
+/* lol */
+.lolbg{
+    position: relative;
+    z-index: 1;
+    background-image: url(img/fish.gif);
+    background-color: #f687b3;
+    background-blend-mode: normal;
+    background-size:50%;
+    width: 100vw;
+    height: 100vh;
+}
+
+.duck img{
+    position: absolute;
+    top: 30vh;
+    left: 40vw;
+    width: 20vw;
+}
+

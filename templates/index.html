@@ -29,12 +29,17 @@
         <title>enter the tower</title>
         
         <link rel ="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
         
     </head>
 
     <body>
         <div class="indexbg"></div>
         <div class="homescreen">
+            <div class="bricktexture"></div>
+            <div class="deco018">
+                <img src="{{ url_for ('static', filename='img/deco018.jpg') }}" alt="decoration">
+            </div>
             <div class="deco014">
                 <img src="{{ url_for ('static', filename='img/deco014.gif') }}" alt="decoration">
             </div>
@@ -43,6 +48,21 @@
             </div>
             <div class="deco015">
                 <img src="{{ url_for ('static', filename='img/deco015.gif') }}" alt="decoration">
+            </div>
+            <div class="deco016">
+                <img src="{{ url_for ('static', filename='img/deco016.gif') }}" alt="decoration">
+            </div>
+            <div class="deco017">
+                <img src="{{ url_for ('static', filename='img/deco017.jpg') }}" alt="decoration">
+            </div>
+            <div class="deco019">
+                <img src="{{ url_for ('static', filename='img/deco019.jpg') }}" alt="decoration">
+            </div>
+            <div class="enter scoreable" data-value="enter">
+                <a href="/home"><img src="{{ url_for ('static', filename='img/enter1.png') }}" alt="decoration"></a>
+            </div>
+            <div class="indextitle">
+                <img src="{{ url_for ('static', filename='img/titleop1.png') }}" alt="title">
             </div>
             <p class="indextext"> you are about to enter the digital tower. the tower was not built for mobile usage. if you haven't yet done so,  please acquire a proper computer at your earliest convenience.</p>
             

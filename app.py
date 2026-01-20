@@ -92,6 +92,10 @@ def you_are_free():
 def are_you_free():
     return render_template("cable_final.html")
 
+@app.route("/lol", methods=["GET", "POST"])
+def lol():
+    return render_template("lol.html")
+
 
 #  INTERACTIONS AND SCORING
 
@@ -101,6 +105,7 @@ ITEM_POINTS = {
     'yarn_escape': 99,
     'cable_escape': -99,
     'quiz_finished': 0,
+    'enter': 0,
     'portrait': 0,
     'window':0,
     'restart': 0,
@@ -120,7 +125,7 @@ ITEM_POINTS = {
     'no_horse': -2,
     'hole': -2,
     'home': -2,
-    'no_rest': -3,
+    'no_rest': -4,
     'computer': -5,
     'cable': -5,
 }
@@ -130,17 +135,25 @@ def save():
     # Grab the value sent by JavaScript
     item_name = request.form.get('value')
 
+    #  Use session ID as user identifier
+    user_id = session.sid
+
     if item_name == "restart":
-        # This "kills" the current session
+        #clear database
+        conn = sqlite3.connect('database.db')
+        db = conn.cursor()
+        db.execute('DELETE FROM history WHERE user = ?', (user_id,))
+        conn.commit()
+        conn.close()
+
+        #clear session
         session.clear() 
         
         print("SESSION WIPED: User will get a new ID")
         
-        # Force a page reload so Flask generates the new ID
+        #force a page reload so Flask generates the new ID
         return redirect(url_for("index"))
     
-    #  Use session ID as user identifier
-    user_id = session.sid
 
     #  Look up the points (default to 0 if item isn't in the list)
     points = ITEM_POINTS.get(item_name, 0)
